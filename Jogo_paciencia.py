@@ -11,3 +11,13 @@ def extrai_naipe (carta):
         return '♣'
     else:
         return '♠'
+
+def extrai_valor(carta1):
+    
+    if len(carta1) == 2:
+        valor = carta1[0]
+        
+    else:
+        valor = carta1 [0] + carta1[1]
+    return valor
+        
