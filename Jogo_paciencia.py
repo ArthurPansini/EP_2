@@ -81,7 +81,12 @@ while resposta == "sim":
         for i in range (len(embaralhando)):
             print ('{0}. {1}'.format(i+1, embaralhando[i]))
 
-        escolhercarta = int(input('Escolha uma carta (digite um número entre 1 e 52):'))
+        escolhercarta = input('Escolha uma carta (digite um número entre 1 e {}):'.format(len(embaralhando)))
+        while escolhercarta.isnumeric() == False or int(escolhercarta) > 52 or int(escolhercarta) < 1:
+            escolhercarta = input('Você digitou um termo inválido. Escolha uma carta (digite um número entre 1 e 52):')
+        
+        escolhercarta = int(escolhercarta)
+
         possivel = lista_movimentos_possiveis(embaralhando, escolhercarta - 1)
         if len(possivel) == 0:
             print('A carta {} não pode ser movida.'.format(embaralhando[escolhercarta - 1]))
@@ -106,8 +111,13 @@ while resposta == "sim":
                         print('{0}. {1}'.format(2, embaralhando[escolhercarta-4]))
 
         elif len(possivel) == 1:
+            if possivel == [1]:
                 embaralhando = empilha(embaralhando, escolhercarta-1, escolhercarta-2)
                 print('o estado atual do baralho é:')
+            else:
+                embaralhando = empilha(embaralhando, escolhercarta-1, escolhercarta-4)
+                print('o estado atual do baralho é:')
+
         possui_movimentos_possiveis(embaralhando) == False
     if len(embaralhando) == 1:
         print('Parabéns você ganhou!')
