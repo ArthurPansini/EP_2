@@ -39,4 +39,13 @@ def empilha(lista, posO, posD):
     lista[posD] = lista[posO]
     del lista[posO]
     return lista
+
+def possui_movimentos_possiveis(listastr):
+    for indice in range(1,len(listastr)):
+        if extrai_naipe(listastr[indice]) == extrai_naipe(listastr[indice-1]) or  extrai_valor(listastr[indice]) == extrai_valor(listastr[indice-1]) or indice >= 3 and (extrai_naipe(listastr[indice]) == extrai_naipe(listastr[indice-3]) or  extrai_valor(listastr[indice]) == extrai_valor(listastr[indice-3])):
+            return True
+
+    else:
+        return False
+    
         
