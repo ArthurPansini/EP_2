@@ -20,4 +20,18 @@ def extrai_valor(carta1):
     else:
         valor = carta1 [0] + carta1[1]
     return valor
+
+def lista_movimentos_possiveis(listadebaralho,indice):
+    cartas = []
+    if indice == 0:
+        return []
+    else:
+        if extrai_naipe(listadebaralho[indice]) in listadebaralho[indice-1] or extrai_valor(listadebaralho[indice]) in listadebaralho[indice-1]:
+            cartas.append(1)
+
+        if indice>2:
+            if extrai_naipe(listadebaralho[indice]) in listadebaralho[indice-3] or extrai_valor(listadebaralho[indice]) in listadebaralho[indice-3]:
+                cartas.append(3)
+        
+    return cartas
         
