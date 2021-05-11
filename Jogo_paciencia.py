@@ -65,6 +65,16 @@ print("2. As duas cartas possuem o mesmo naipe.\n")
 
 print("Desde que alguma das condições acima seja satisfeita, qualquer carta pode ser movimentada.\n")
 
-print("Aperte [Enter] para iniciar o jogo...\n")
+#print("Aperte [Enter] para iniciar o jogo...\n")
+
+iniciar = input("Aperte [Enter] para iniciar o jogo...")
+
+print('O estado atual do baralho é:\n' )
+
+print(cria_baralho())
+baralho = cria_baralho()
+escolhercarta = input('Escolha uma carta (digite um número entre 1 e 52):')
+escolhercarta = int(escolhercarta)
+carta = baralho[escolhercarta - 1]
     
         
