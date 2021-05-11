@@ -77,9 +77,12 @@ resposta = 'sim'
 while resposta == "sim":
     baralho = cria_baralho()
     embaralhando = (random.sample(baralho, 52))
+    possivel = [1] # inicializando possivel
     while possui_movimentos_possiveis(embaralhando) != False:
         for i in range (len(embaralhando)):
-            print ('{0}. {1}'.format(i+1, embaralhando[i]))
+
+            if (len(possivel)!= 0):
+                print ('{0}. {1}'.format(i+1, embaralhando[i]))
 
         escolhercarta = input('Escolha uma carta (digite um número entre 1 e {}):'.format(len(embaralhando)))
         while escolhercarta.isnumeric() == False or int(escolhercarta) > 52 or int(escolhercarta) < 1:
@@ -90,7 +93,7 @@ while resposta == "sim":
         possivel = lista_movimentos_possiveis(embaralhando, escolhercarta - 1)
         if len(possivel) == 0:
             print('A carta {} não pode ser movida.'.format(embaralhando[escolhercarta - 1]))
-            escolhercarta = int(input('Escolha uma carta (digite um número entre 1 e {}):'.format(len(embaralhando))))
+            
         elif len(possivel) == 2:
             print('Sobre qual carta você quer empilhar o {}?'.format(embaralhando[escolhercarta - 1]))
             print('{0}. {1}'.format(1, embaralhando[escolhercarta - 2]))
