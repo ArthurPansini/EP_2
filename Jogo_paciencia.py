@@ -85,7 +85,7 @@ while resposta == "sim":
                 print ('{0}. {1}'.format(i+1, embaralhando[i]))
 
         escolhercarta = input('Escolha uma carta (digite um número entre 1 e {}):'.format(len(embaralhando)))
-        while escolhercarta.isnumeric() == False or int(escolhercarta) > 52 or int(escolhercarta) < 1:
+        while escolhercarta.isnumeric() == False or int(escolhercarta) > len(embaralhando) or int(escolhercarta) < 1 :
             escolhercarta = input('Você digitou um termo inválido. Escolha uma carta (digite um número entre 1 e 52):')
         
         escolhercarta = int(escolhercarta)
@@ -126,7 +126,7 @@ while resposta == "sim":
         print('Parabéns você ganhou!')
         resposta = input('Você quer jogar novamente? (sim ou não) ')
     else:
-        print('Que pena você perdeu. Tente outra vez!')
+        print('Que pena, você perdeu!')
         resposta = input('Você quer jogar novamente? (sim ou não) ')
         
 
