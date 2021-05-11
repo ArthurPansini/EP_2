@@ -23,6 +23,16 @@ def extrai_valor(carta1):
         valor = carta1 [0] + carta1[1]
     return valor
 
+def colorir(i):
+        if extrai_naipe(i) == '♥':
+            return (('\033[1;34m{0}\033[m').format(i))
+        elif extrai_naipe(i) == '♦':
+            return (('\033[1;31m{0}\033[m').format(i))
+        elif extrai_naipe(i) == '♠':
+            return (('\033[1;35m{0}\033[m').format(i))
+        elif extrai_naipe(i) == '♣':
+            return (('\033[1;92m{0}\033[m').format(i))
+
 def lista_movimentos_possiveis(listadebaralho,indice):
     cartas = []
     if indice == 0:
@@ -82,7 +92,7 @@ while resposta == "sim":
         for i in range (len(embaralhando)):
 
             if (len(possivel)!= 0):
-                print ('{0}. {1}'.format(i+1, embaralhando[i]))
+                print ('{0}. {1}'.format(i+1, colorir(embaralhando[i])))
 
         escolhercarta = input('Escolha uma carta (digite um número entre 1 e {}):'.format(len(embaralhando)))
         while escolhercarta.isnumeric() == False or int(escolhercarta) > len(embaralhando) or int(escolhercarta) < 1 :
