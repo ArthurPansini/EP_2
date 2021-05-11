@@ -34,4 +34,9 @@ def lista_movimentos_possiveis(listadebaralho,indice):
                 cartas.append(3)
         
     return cartas
+
+def empilha(lista, posO, posD):
+    lista[posD] = lista[posO]
+    del lista[posO]
+    return lista
         
